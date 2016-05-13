@@ -49,18 +49,17 @@ def crawl(item_url):
 def company_scraper(max_pages):
   page=1
   while page <= max_pages:
-    url = 'http://www.yelp.com/search?find_desc=chinese+food&find_loc=San+Francisco%2C+CA&ns='+str(page)
+    url = 'http://blog.code-n.org/blog/tag/iot/page/'+str(page)+'/'
     source_code=requests.get(url)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text,"html.parser")
     for link in soup.find_all('h1',{'class':'entry-title'}):
-    	url_link=link.find('a') #get href from between header(h2) tags
-    	try:
-    		href=url_link.get('href')
-    		crawl(href)
-            print(href)
-    	except:
-    		pass
+        url_link=link.find('a') #get href from between header(h2) tags
+        try:
+            href=url_link.get('href')
+            crawl(href)
+        except:
+            pass
 
     page += 1
 
