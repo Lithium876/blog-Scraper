@@ -50,8 +50,8 @@ pip3.4 install requests
 Open Terminal
 ```
 ```
-sudo python3 -m easy_install pip
+sudo apt-get install python-pip
 ```
 ```
-sudo pip-3.2 install requests
+sudo pip install requests
 ```
